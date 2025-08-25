@@ -1,0 +1,23 @@
+[
+    {
+        "product_id": 1,
+        "name": "телевизор",
+        "price": 33000.0,
+        "category": "техника",
+        "stock": 0
+    },
+    {
+        "product_id": 2,
+        "name": "Фен",
+        "price": 10000.0,
+        "category": "бытовая техника",
+        "stock": 594
+    },
+    {
+        "product_id": 3,
+        "name": "пылесос",
+        "price": 20000.0,
+        "category": "бытовая техника",
+        "stock": 297
+    }
+]

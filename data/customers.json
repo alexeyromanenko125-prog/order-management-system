@@ -1,0 +1,44 @@
+[
+    {
+        "customer_id": 1,
+        "name": "Алек",
+        "email": "dfd@mail.ru",
+        "phone": "89089096789",
+        "address": "Москва, ул. Гончарная 88"
+    },
+    {
+        "customer_id": 2,
+        "name": "Вера",
+        "email": "vera@mail.ru",
+        "phone": "89093036789",
+        "address": "Владивосток, ул. Светланская 55"
+    },
+    {
+        "customer_id": 3,
+        "name": "Fedor",
+        "email": "sales@order.com",
+        "phone": "89082023989",
+        "address": "Moscow, vesekaya str. 8"
+    },
+    {
+        "customer_id": 4,
+        "name": "Алексей Р",
+        "email": "test@mail.ru",
+        "phone": "89093037890",
+        "address": "Новосибирск, ул. Ленина 22"
+    },
+    {
+        "customer_id": 5,
+        "name": "Дмитрий С",
+        "email": "ds@mail.ru",
+        "phone": "89092027676",
+        "address": "Владивосток, ул. Светланская 67"
+    },
+    {
+        "customer_id": 6,
+        "name": "Дима",
+        "email": "fd@mail.ru",
+        "phone": "89093456789",
+        "address": "Кемерово, ул. Ленина 7"
+    }
+]

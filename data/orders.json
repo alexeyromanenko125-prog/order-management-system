@@ -1,0 +1,86 @@
+[
+    {
+        "order_id": 1,
+        "customer_id": 1,
+        "date": "2025-08-15T16:18:58.786657",
+        "items": [
+            {
+                "product_id": 1,
+                "quantity": 1,
+                "price": 33000.0,
+                "total_price": 33000.0
+            }
+        ],
+        "total_amount": 33000.0
+    },
+    {
+        "order_id": 2,
+        "customer_id": 2,
+        "date": "2025-08-19T12:53:41.980063",
+        "items": [
+            {
+                "product_id": 3,
+                "quantity": 1,
+                "price": 20000.0,
+                "total_price": 20000.0
+            }
+        ],
+        "total_amount": 20000.0
+    },
+    {
+        "order_id": 3,
+        "customer_id": 3,
+        "date": "2025-08-19T12:54:24.564726",
+        "items": [
+            {
+                "product_id": 2,
+                "quantity": 5,
+                "price": 10000.0,
+                "total_price": 50000.0
+            }
+        ],
+        "total_amount": 50000.0
+    },
+    {
+        "order_id": 4,
+        "customer_id": 5,
+        "date": "2025-08-19T12:57:55.428028",
+        "items": [
+            {
+                "product_id": 3,
+                "quantity": 1,
+                "price": 20000.0,
+                "total_price": 20000.0
+            }
+        ],
+        "total_amount": 20000.0
+    },
+    {
+        "order_id": 5,
+        "customer_id": 4,
+        "date": "2025-08-19T12:58:36.861310",
+        "items": [
+            {
+                "product_id": 2,
+                "quantity": 1,
+                "price": 10000.0,
+                "total_price": 10000.0
+            }
+        ],
+        "total_amount": 10000.0
+    },
+    {
+        "order_id": 6,
+        "customer_id": 1,
+        "date": "2025-08-20T13:59:25.866883",
+        "items": [
+            {
+                "product_id": 3,
+                "quantity": 1,
+                "price": 20000.0,
+                "total_price": 20000.0
+            }
+        ],
+        "total_amount": 20000.0
+    }
+]
