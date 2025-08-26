@@ -1,4 +1,12 @@
 # Order Management System
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![GitHub](https://img.shields.io/github/repo-size/alexeyromanenko125-prog/order-management-system)
+![GitHub](https://img.shields.io/github/last-commit/alexeyromanenko125-prog/order-management-system)
+![GitHub](https://img.shields.io/github/languages/top/alexeyromanenko125-prog/order-management-system)
+![GitHub issues](https://img.shields.io/github/issues/alexeyromanenko125-prog/order-management-system)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/alexeyromanenko125-prog/order-management-system)
+![GitHub contributors](https://img.shields.io/github/contributors/alexeyromanenko125-prog/order-management-system)
+
 
 Система управления заказами (OMS) с графическим интерфейсом на Python.
 
