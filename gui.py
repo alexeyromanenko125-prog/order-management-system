@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from datetime import datetime
 from typing import Optional, List, Dict, Any
+import json
+import csv
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
@@ -64,82 +66,91 @@ class OrderManagementApp:
         self._setup_admin_tab()
     
     def _setup_customer_tab(self):
-   
-    # Панель управления
-        control_frame = ttk.Frame(self.customer_tab)
-        control_frame.pack(fill=tk.X, padx=5, pady=5)
+        """Настройка вкладки клиентов"""
+        # Основной фрейм с выравниванием по левому краю
+        main_frame = ttk.Frame(self.customer_tab)
+        main_frame.pack(fill=tk.BOTH, expand=True, anchor='nw')
+        
+        # Панель управления
+        control_frame = ttk.Frame(main_frame)
+        control_frame.pack(fill=tk.X, padx=5, pady=5, anchor='nw')
     
         ttk.Button(control_frame, text="Добавить клиента", 
-              command=self._show_add_customer_dialog).pack(side=tk.LEFT, padx=5)
+                  command=self._show_add_customer_dialog).pack(side=tk.LEFT, padx=5)
         ttk.Button(control_frame, text="Импорт", 
-              command=self._import_customers).pack(side=tk.LEFT, padx=5)
+                  command=self._import_customers).pack(side=tk.LEFT, padx=5)
         ttk.Button(control_frame, text="Экспорт", 
-              command=self._export_customers).pack(side=tk.LEFT, padx=5)
+                  command=self._export_customers).pack(side=tk.LEFT, padx=5)
     
-    # Поиск
-        search_frame = ttk.Frame(self.customer_tab)
-        search_frame.pack(fill=tk.X, padx=5, pady=5)
+        # Поиск
+        search_frame = ttk.Frame(main_frame)
+        search_frame.pack(fill=tk.X, padx=5, pady=5, anchor='nw')
     
         ttk.Label(search_frame, text="Поиск:").pack(side=tk.LEFT)
         self.customer_search_entry = ttk.Entry(search_frame)
         self.customer_search_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
         self.customer_search_entry.bind('<KeyRelease>', self._search_customers)
     
-    # Таблица клиентов
-        columns = ("ID", "Имя", "Email", "Телефон", "Адрес")
-        self.customer_tree = ttk.Treeview(
-        self.customer_tab, columns=columns, show="headings", selectmode="browse")
-    
-        for col in columns:
-            self.customer_tree.heading(col, text=col)
-            self.customer_tree.column(col, width=100, anchor=tk.W)
-    
-        self.customer_tree.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
-        self.customer_tree.bind('<<TreeviewSelect>>', self._on_customer_select)
-
-    # Создаем стиль с видимыми границами
+        # Создаем стиль с видимыми границами
         style = ttk.Style()
         style.configure("Border.Treeview",
-        background="white",
-        foreground="black",
-        rowheight=25,
-        fieldbackground="white"
-    )
+                        background="white",
+                        foreground="black",
+                        rowheight=25,
+                        fieldbackground="white")
     
         style.configure("Border.Treeview.Heading",
-        background="#e0e0e0",
-        foreground="black",
-        relief="raised",
-        borderwidth=1
-    )
+                        background="#e0e0e0",
+                        foreground="black",
+                        relief="raised",
+                        borderwidth=1)
     
-    # Создаем Treeview с полными границами
+        # Фрейм для Treeview с выравниванием по левому краю
+        tree_frame = ttk.Frame(main_frame)
+        tree_frame.pack(fill=tk.BOTH, expand=True, padx=0, pady=5, anchor='nw')
+    
+
+
+        # Таблица клиентов
         columns = ("ID", "Имя", "Email", "Телефон", "Адрес")
         self.customer_tree = ttk.Treeview(
-            self.customer_tab,
+            tree_frame,
             columns=columns,
-            show="tree headings",  # Показываем дерево и заголовки
+            show="headings",
             style="Border.Treeview",
             selectmode="browse",
-            padding=2
-    )
+            padding=0
+        )
     
-    # Настраиваем колонки с минимальной шириной
+        self.customer_tree.column("#0", width=0, stretch=False)  # Полностью скрыть
+
+        # Настраиваем колонки с минимальной шириной
         column_widths = {"ID": 60, "Имя": 150, "Email": 120, "Телефон": 100, "Адрес": 200}
     
         for col in columns:
             self.customer_tree.heading(col, text=col, anchor=tk.W)
-            self.customer_tree.column(col, width=column_widths.get(col, 100), 
-                                anchor=tk.W, minwidth=50, stretch=False)
+            # Для столбца ID убираем растягивание и выравниваем по левому краю
+            if col == "ID":
+                self.customer_tree.column(col, width=60, anchor=tk.W, minwidth=60, stretch=False)
+            else:
+                self.customer_tree.column(col, width=column_widths.get(col, 100), 
+                                    anchor=tk.W, minwidth=50, stretch=True)
     
-    # Устанавливаем отступы для видимости границ
-        self.customer_tree.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+        # Добавляем скроллбар
+        scrollbar = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL, command=self.customer_tree.yview)
+        self.customer_tree.configure(yscrollcommand=scrollbar.set)
+        
+        # Размещаем Treeview и скроллбар
+        self.customer_tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
     
-    # Добавляем чередование цветов для лучшей читаемости
+        # Добавляем чередование цветов для лучшей читаемости
         self.customer_tree.tag_configure('odd', background='#f8f8f8')
-        self.customer_tree.tag_configure('even', background='white')   
+        self.customer_tree.tag_configure('even', background='white')
+        
+        self.customer_tree.bind('<<TreeviewSelect>>', self._on_customer_select)
 
-    # Обновление данных
+        # Обновление данных
         self._update_customer_list()
 
     def _setup_product_tab(self):
@@ -199,24 +210,24 @@ class OrderManagementApp:
         order_info_frame = ttk.LabelFrame(self.order_tab, text="Информация о заказе")
         order_info_frame.pack(fill=tk.X, padx=5, pady=5)
         
-        ttk.Label(order_info_frame, text="Клиент:").grid(row=0, column=0, sticky=tk.W)
+        ttk.Label(order_info_frame, text="Клиент:").grid(row=0, column=0, sticky=tk.W, padx=5, pady=2)
         self.order_customer_label = ttk.Label(order_info_frame, text="Не выбран")
-        self.order_customer_label.grid(row=0, column=1, sticky=tk.W)
+        self.order_customer_label.grid(row=0, column=1, sticky=tk.W, padx=5, pady=2)
         
-        ttk.Label(order_info_frame, text="Дата:").grid(row=1, column=0, sticky=tk.W)
+        ttk.Label(order_info_frame, text="Дата:").grid(row=1, column=0, sticky=tk.W, padx=5, pady=2)
         self.order_date_label = ttk.Label(order_info_frame, text=datetime.now().strftime("%Y-%m-%d %H:%M"))
-        self.order_date_label.grid(row=1, column=1, sticky=tk.W)
+        self.order_date_label.grid(row=1, column=1, sticky=tk.W, padx=5, pady=2)
         
-        ttk.Label(order_info_frame, text="Сумма:").grid(row=2, column=0, sticky=tk.W)
+        ttk.Label(order_info_frame, text="Сумма:").grid(row=2, column=0, sticky=tk.W, padx=5, pady=2)
         self.order_total_label = ttk.Label(order_info_frame, text="0.00")
-        self.order_total_label.grid(row=2, column=1, sticky=tk.W)
+        self.order_total_label.grid(row=2, column=1, sticky=tk.W, padx=5, pady=2)
         
         # Добавление товаров
         add_product_frame = ttk.Frame(self.order_tab)
         add_product_frame.pack(fill=tk.X, padx=5, pady=5)
         
         ttk.Label(add_product_frame, text="Товар:").pack(side=tk.LEFT)
-        self.product_combobox = ttk.Combobox(add_product_frame, state="readonly")
+        self.product_combobox = ttk.Combobox(add_product_frame, state="readonly", width=30)
         self.product_combobox.pack(side=tk.LEFT, padx=5)
         self._update_product_combobox()
         
@@ -231,7 +242,7 @@ class OrderManagementApp:
         # Таблица товаров в заказе
         columns = ("Товар", "Цена", "Количество", "Сумма")
         self.order_items_tree = ttk.Treeview(
-            self.order_tab, columns=columns, show="headings")
+            self.order_tab, columns=columns, show="headings", height=8)
         
         for col in columns:
             self.order_items_tree.heading(col, text=col)
@@ -241,7 +252,7 @@ class OrderManagementApp:
         
         # Таблица всех заказов
         self.order_tree = ttk.Treeview(
-            self.order_tab, columns=("ID", "Клиент", "Дата", "Сумма"), show="headings")
+            self.order_tab, columns=("ID", "Клиент", "Дата", "Сумма"), show="headings", height=8)
         
         for col in ("ID", "Клиент", "Дата", "Сумма"):
             self.order_tree.heading(col, text=col)
@@ -317,14 +328,15 @@ class OrderManagementApp:
         
         self.customer_tree.delete(*self.customer_tree.get_children())
         
-        for customer in customers:
+        for i, customer in enumerate(customers):
+            tag = 'even' if i % 2 == 0 else 'odd'
             self.customer_tree.insert("", tk.END, values=(
                 customer.customer_id,
                 customer.name,
                 customer.email,
                 customer.phone,
                 customer.address
-            ))
+            ), tags=(tag,))
     
     def _search_customers(self, event=None):
         """Поиск клиентов"""
@@ -399,6 +411,9 @@ class OrderManagementApp:
                       address_entry.get(),
                       dialog
                   )).pack(side=tk.LEFT, padx=5)
+        
+        # Настройка веса колонок для правильного растягивания
+        dialog.columnconfigure(1, weight=1)
     
     def _save_new_customer(self, customer_id: str, name: str, email: str, 
                          phone: str, address: str, dialog: tk.Toplevel):
@@ -568,6 +583,8 @@ class OrderManagementApp:
                       stock_entry.get(),
                       dialog
                   )).pack(side=tk.LEFT, padx=5)
+        
+        dialog.columnconfigure(1, weight=1)
     
     def _save_new_product(self, product_id: str, name: str, price: str, 
                          category: str, stock: str, dialog: tk.Toplevel):
