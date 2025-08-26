@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>test_models module &#8212; документация Order Management System 1.1</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=38da9577"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=5b699b7f"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-test_models">
+<span id="test-models-module"></span><h1>test_models module<a class="headerlink" href="#module-test_models" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Unit-тесты для модуля models.py.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="test_models.TestPerson">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_models.</span></span><span class="sig-name descname"><span class="pre">TestPerson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestPerson"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestPerson" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для класса Person.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestPerson.test_person_creation">
+<span class="sig-name descname"><span class="pre">test_person_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestPerson.test_person_creation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestPerson.test_person_creation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест создания объекта Person.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestPerson.test_email_validation">
+<span class="sig-name descname"><span class="pre">test_email_validation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestPerson.test_email_validation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestPerson.test_email_validation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест валидации email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestPerson.test_phone_validation">
+<span class="sig-name descname"><span class="pre">test_phone_validation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestPerson.test_phone_validation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestPerson.test_phone_validation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест валидации телефона.</p>
+<p>Проверяемые форматы:
+- +79161234567 (международный)
+- 89161234567 (российский с 8)
+- 9161234567 (простой 10-значный)
+- Форматированные номера с скобками и дефисами</p>
+<p>Ожидается отклонение:
+- Неправильных форматов
+- Номеров с буквами
+- Пустых значений</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestPerson.test_email_setter_validation">
+<span class="sig-name descname"><span class="pre">test_email_setter_validation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestPerson.test_email_setter_validation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestPerson.test_email_setter_validation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест валидации при установке email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestPerson.test_phone_setter_validation">
+<span class="sig-name descname"><span class="pre">test_phone_setter_validation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestPerson.test_phone_setter_validation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestPerson.test_phone_setter_validation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест валидации при установке телефона.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_models.TestCustomer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_models.</span></span><span class="sig-name descname"><span class="pre">TestCustomer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestCustomer"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestCustomer" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для класса Customer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestCustomer.test_customer_creation">
+<span class="sig-name descname"><span class="pre">test_customer_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestCustomer.test_customer_creation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestCustomer.test_customer_creation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест создания объекта Customer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestCustomer.test_add_order">
+<span class="sig-name descname"><span class="pre">test_add_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestCustomer.test_add_order"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestCustomer.test_add_order" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест добавления заказа клиенту.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestCustomer.test_get_total_spent">
+<span class="sig-name descname"><span class="pre">test_get_total_spent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestCustomer.test_get_total_spent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestCustomer.test_get_total_spent" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест расчета общей суммы покупок.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_models.TestProduct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_models.</span></span><span class="sig-name descname"><span class="pre">TestProduct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestProduct"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestProduct" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для класса Product.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestProduct.test_product_creation">
+<span class="sig-name descname"><span class="pre">test_product_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestProduct.test_product_creation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestProduct.test_product_creation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест создания объекта Product.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestProduct.test_update_stock">
+<span class="sig-name descname"><span class="pre">test_update_stock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestProduct.test_update_stock"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestProduct.test_update_stock" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест обновления запасов.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_models.TestOrderItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_models.</span></span><span class="sig-name descname"><span class="pre">TestOrderItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrderItem"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrderItem" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для класса OrderItem.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrderItem.test_order_item_creation">
+<span class="sig-name descname"><span class="pre">test_order_item_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrderItem.test_order_item_creation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrderItem.test_order_item_creation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест создания объекта OrderItem.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrderItem.test_total_price">
+<span class="sig-name descname"><span class="pre">test_total_price</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrderItem.test_total_price"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrderItem.test_total_price" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест расчета общей стоимости позиции.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_models.TestOrder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_models.</span></span><span class="sig-name descname"><span class="pre">TestOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrder"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrder" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для класса Order.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrder.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrder.setUp"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrder.setUp" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Настройка тестовых данных.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrder.test_order_creation">
+<span class="sig-name descname"><span class="pre">test_order_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrder.test_order_creation"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrder.test_order_creation" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест создания объекта Order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrder.test_add_item">
+<span class="sig-name descname"><span class="pre">test_add_item</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrder.test_add_item"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrder.test_add_item" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест добавления позиции в заказ.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrder.test_total_amount">
+<span class="sig-name descname"><span class="pre">test_total_amount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrder.test_total_amount"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrder.test_total_amount" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест расчета общей суммы заказа.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_models.TestOrder.test_empty_order_total">
+<span class="sig-name descname"><span class="pre">test_empty_order_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_models.html#TestOrder.test_empty_order_total"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_models.TestOrder.test_empty_order_total" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест суммы пустого заказа.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Order Management System</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Модули</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Alexey Romanenko.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/source/test_models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

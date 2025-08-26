@@ -1,3 +1,13 @@
+"""
+Модуль графического интерфейса.
+
+Содержит главное окно приложения с вкладками для управления:
+- Клиентами
+- Товарами
+- Заказами
+- Аналитикой
+- Администрированием
+"""
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from datetime import datetime
@@ -12,11 +22,11 @@ from db import Database
 from analysis import DataAnalyzer
 
 class OrderManagementApp:
-    """Главное приложение для управления заказами"""
+    """Главное приложение для управления заказами."""
     
     def __init__(self, root: tk.Tk):
-        """
-        Parameters
+        """Parameters.
+
         ----------
         root : tk.Tk
             Корневое окно приложения
@@ -35,7 +45,7 @@ class OrderManagementApp:
         self._setup_ui()
     
     def _setup_ui(self):
-        """Настройка пользовательского интерфейса"""
+        """Настройка пользовательского интерфейса."""
         # Создание вкладок
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill=tk.BOTH, expand=True)
@@ -66,7 +76,7 @@ class OrderManagementApp:
         self._setup_admin_tab()
     
     def _setup_customer_tab(self):
-        """Настройка вкладки клиентов"""
+        """Настройка вкладки клиентов."""
         # Основной фрейм с выравниванием по левому краю
         main_frame = ttk.Frame(self.customer_tab)
         main_frame.pack(fill=tk.BOTH, expand=True, anchor='nw')
@@ -154,7 +164,7 @@ class OrderManagementApp:
         self._update_customer_list()
 
     def _setup_product_tab(self):
-        """Настройка вкладки товаров"""
+        """Настройка вкладки товаров."""
         # Панель управления
         control_frame = ttk.Frame(self.product_tab)
         control_frame.pack(fill=tk.X, padx=5, pady=5)
@@ -190,7 +200,7 @@ class OrderManagementApp:
         self._update_product_list()
     
     def _setup_order_tab(self):
-        """Настройка вкладки заказов"""
+        """Настройка вкладки заказов."""
         # Панель управления
         control_frame = ttk.Frame(self.order_tab)
         control_frame.pack(fill=tk.X, padx=5, pady=5)
@@ -266,7 +276,7 @@ class OrderManagementApp:
         self._clear_order_form()
     
     def _setup_analysis_tab(self):
-        """Настройка вкладки анализа"""
+        """Настройка вкладки анализа."""
         # Панель управления
         control_frame = ttk.Frame(self.analysis_tab)
         control_frame.pack(fill=tk.X, padx=5, pady=5)
@@ -285,7 +295,7 @@ class OrderManagementApp:
         self.analysis_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
     
     def _setup_admin_tab(self):
-        """Настройка вкладки администрирования"""
+        """Настройка вкладки администрирования."""
         # Экспорт/импорт всей базы
         db_frame = ttk.LabelFrame(self.admin_tab, text="База данных")
         db_frame.pack(fill=tk.X, padx=5, pady=5)
@@ -322,7 +332,7 @@ class OrderManagementApp:
     
     # Методы для работы с клиентами
     def _update_customer_list(self, customers: Optional[List[Customer]] = None):
-        """Обновление списка клиентов"""
+        """Обновление списка клиентов."""
         if customers is None:
             customers = self.db.get_all_customers()
         
@@ -339,7 +349,7 @@ class OrderManagementApp:
             ), tags=(tag,))
     
     def _search_customers(self, event=None):
-        """Поиск клиентов"""
+        """Поиск клиентов."""
         search_term = self.customer_search_entry.get().lower()
         
         if not search_term:
@@ -359,7 +369,7 @@ class OrderManagementApp:
         self._update_customer_list(filtered)
     
     def _on_customer_select(self, event):
-        """Обработка выбора клиента"""
+        """Обработка выбора клиента."""
         selected = self.customer_tree.focus()
         if not selected:
             return
@@ -368,7 +378,7 @@ class OrderManagementApp:
         self.current_customer = self.db.get_customer(customer_id)
     
     def _show_add_customer_dialog(self):
-        """Показ диалога добавления клиента"""
+        """Показ диалога добавления клиента."""
         dialog = tk.Toplevel(self.root)
         dialog.title("Добавить клиента")
         dialog.geometry("400x300")
@@ -417,7 +427,7 @@ class OrderManagementApp:
     
     def _save_new_customer(self, customer_id: str, name: str, email: str, 
                          phone: str, address: str, dialog: tk.Toplevel):
-        """Сохранение нового клиента"""
+        """Сохранение нового клиента."""
         try:
             customer = Customer(
                 int(customer_id),
@@ -435,7 +445,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Неверные данные: {e}")
     
     def _import_customers(self):
-        """Импорт клиентов из файла"""
+        """Импорт клиентов из файла."""
         file_path = filedialog.askopenfilename(
             title="Импорт клиентов",
             filetypes=(("JSON files", "*.json"), ("CSV files", "*.csv")))
@@ -469,7 +479,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Ошибка импорта: {e}")
     
     def _export_customers(self):
-        """Экспорт клиентов в файл"""
+        """Экспорт клиентов в файл."""
         file_path = filedialog.asksaveasfilename(
             title="Экспорт клиентов",
             defaultextension=".json",
@@ -498,7 +508,7 @@ class OrderManagementApp:
     
     # Методы для работы с товарами
     def _update_product_list(self, products: Optional[List[Product]] = None):
-        """Обновление списка товаров"""
+        """Обновление списка товаров."""
         if products is None:
             products = self.db.get_all_products()
         
@@ -514,7 +524,7 @@ class OrderManagementApp:
             ))
     
     def _search_products(self, event=None):
-        """Поиск товаров"""
+        """Поиск товаров."""
         search_term = self.product_search_entry.get().lower()
         
         if not search_term:
@@ -532,7 +542,7 @@ class OrderManagementApp:
         self._update_product_list(filtered)
     
     def _update_product_combobox(self):
-        """Обновление списка товаров в комбобоксе"""
+        """Обновление списка товаров в комбобоксе."""
         products = self.db.get_all_products()
         product_names = [f"{p.product_id}: {p.name} ({p.price:.2f} руб.)" for p in products]
         self.product_combobox['values'] = product_names
@@ -540,7 +550,7 @@ class OrderManagementApp:
             self.product_combobox.current(0)
     
     def _show_add_product_dialog(self):
-        """Показ диалога добавления товара"""
+        """Показ диалога добавления товара."""
         dialog = tk.Toplevel(self.root)
         dialog.title("Добавить товар")
         dialog.geometry("400x300")
@@ -588,7 +598,7 @@ class OrderManagementApp:
     
     def _save_new_product(self, product_id: str, name: str, price: str, 
                          category: str, stock: str, dialog: tk.Toplevel):
-        """Сохранение нового товара"""
+        """Сохранение нового товара."""
         try:
             product = Product(
                 int(product_id),
@@ -607,7 +617,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Неверные данные: {e}")
     
     def _import_products(self):
-        """Импорт товаров из файла"""
+        """Импорт товаров из файла."""
         file_path = filedialog.askopenfilename(
             title="Импорт товаров",
             filetypes=(("JSON files", "*.json"), ("CSV files", "*.csv")))
@@ -642,7 +652,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Ошибка импорта: {e}")
     
     def _export_products(self):
-        """Экспорт товаров в файл"""
+        """Экспорт товаров в файл."""
         file_path = filedialog.asksaveasfilename(
             title="Экспорт товаров",
             defaultextension=".json",
@@ -671,7 +681,7 @@ class OrderManagementApp:
     
     # Методы для работы с заказами
     def _update_order_list(self):
-        """Обновление списка заказов"""
+        """Обновление списка заказов."""
         orders = self.db.get_all_orders()
         
         self.order_tree.delete(*self.order_tree.get_children())
@@ -685,7 +695,7 @@ class OrderManagementApp:
             ))
     
     def _on_order_select(self, event):
-        """Обработка выбора заказа"""
+        """Обработка выбора заказа."""
         selected = self.order_tree.focus()
         if not selected:
             return
@@ -694,7 +704,7 @@ class OrderManagementApp:
         self._load_order(order_id)
     
     def _load_order(self, order_id: int):
-        """Загрузка заказа для просмотра"""
+        """Загрузка заказа для просмотра."""
         order = self.db.get_order(order_id)
         if not order:
             return
@@ -718,7 +728,7 @@ class OrderManagementApp:
             ))
     
     def _clear_order_form(self):
-        """Очистка формы заказа"""
+        """Очистка формы заказа."""
         self.current_order = None
         self.current_customer = None
         self.order_items = []
@@ -729,7 +739,7 @@ class OrderManagementApp:
         self.order_items_tree.delete(*self.order_items_tree.get_children())
     
     def _create_new_order(self):
-        """Создание нового заказа"""
+        """Создание нового заказа."""
         if not self.current_customer:
             messagebox.showwarning("Внимание", "Сначала выберите клиента")
             return
@@ -750,7 +760,7 @@ class OrderManagementApp:
         messagebox.showinfo("Успех", f"Создан новый заказ ID: {new_id}")
     
     def _add_product_to_order(self):
-        """Добавление товара в заказ"""
+        """Добавление товара в заказ."""
         if not self.current_order:
             messagebox.showwarning("Внимание", "Сначала создайте или выберите заказ")
             return
@@ -789,7 +799,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Неверные данные: {e}")
     
     def _save_order(self):
-        """Сохранение заказа"""
+        """Сохранение заказа."""
         if not self.current_order or not self.current_order.items:
             messagebox.showwarning("Внимание", "Нет данных для сохранения")
             return
@@ -803,11 +813,11 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Ошибка сохранения: {e}")
     
     def _cancel_order(self):
-        """Отмена текущего заказа"""
+        """Отмена текущего заказа."""
         self._clear_order_form()
     
     def _import_orders(self):
-        """Импорт заказов из файла"""
+        """Импорт заказов из файла."""
         file_path = filedialog.askopenfilename(
             title="Импорт заказов",
             filetypes=(("JSON files", "*.json"), ("CSV files", "*.csv")))
@@ -849,7 +859,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Ошибка импорта: {e}")
     
     def _export_orders(self):
-        """Экспорт заказов в файл"""
+        """Экспорт заказов в файл."""
         file_path = filedialog.asksaveasfilename(
             title="Экспорт заказов",
             defaultextension=".json",
@@ -887,7 +897,7 @@ class OrderManagementApp:
     
     # Методы для анализа данных
     def _show_top_customers(self):
-        """Показать топ клиентов по количеству заказов"""
+        """Показать топ клиентов по количеству заказов."""
         for widget in self.analysis_frame.winfo_children():
             widget.destroy()
         
@@ -897,7 +907,7 @@ class OrderManagementApp:
         canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
     
     def _show_sales_trend(self):
-        """Показать динамику продаж"""
+        """Показать динамику продаж."""
         for widget in self.analysis_frame.winfo_children():
             widget.destroy()
         
@@ -907,7 +917,7 @@ class OrderManagementApp:
         canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
     
     def _show_top_products(self):
-        """Показать топ товаров по продажам"""
+        """Показать топ товаров по продажам."""
         for widget in self.analysis_frame.winfo_children():
             widget.destroy()
         
@@ -917,7 +927,7 @@ class OrderManagementApp:
         canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
     
     def _show_customer_graph(self):
-        """Показать граф связей клиентов"""
+        """Показать граф связей клиентов."""
         for widget in self.analysis_frame.winfo_children():
             widget.destroy()
         
@@ -928,7 +938,7 @@ class OrderManagementApp:
     
     # Методы администрирования
     def _update_stats(self):
-        """Обновление статистики"""
+        """Обновление статистики."""
         customers = self.db.get_all_customers()
         products = self.db.get_all_products()
         orders = self.db.get_all_orders()
@@ -940,7 +950,7 @@ class OrderManagementApp:
         self.total_revenue_label.config(text=f"{total_revenue:.2f}")
     
     def _export_full_db(self):
-        """Экспорт всей базы данных в JSON"""
+        """Экспорт всей базы данных в JSON."""
         file_path = filedialog.asksaveasfilename(
             title="Экспорт всей базы данных",
             defaultextension=".json",
@@ -956,7 +966,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Ошибка экспорта: {e}")
     
     def _import_full_db(self):
-        """Импорт всей базы данных из JSON"""
+        """Импорт всей базы данных из JSON."""
         file_path = filedialog.askopenfilename(
             title="Импорт всей базы данных",
             filetypes=(("JSON files", "*.json"),))
@@ -976,7 +986,7 @@ class OrderManagementApp:
             messagebox.showerror("Ошибка", f"Ошибка импорта: {e}")
     
     def _export_full_db_csv(self):
-        """Экспорт всей базы данных в CSV"""
+        """Экспорт всей базы данных в CSV."""
         try:
             self.db.export_to_csv()
             messagebox.showinfo("Успех", "База данных успешно экспортирована в CSV")

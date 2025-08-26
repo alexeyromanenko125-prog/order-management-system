@@ -1,13 +1,18 @@
+"""
+Главный модуль приложения управления заказами.
+
+Запускает графический интерфейс и инициализирует приложение.
+"""
 import tkinter as tk
 from gui import OrderManagementApp
 
 def main():
-    """Точка входа в приложение"""
+    """Точка входа в приложение."""
     root = tk.Tk()
     app = OrderManagementApp(root)
     
     def on_closing():
-        """Обработчик закрытия окна"""
+        """Обработчик закрытия окна."""
         root.quit()     # Завершает mainloop
         root.destroy()  # Уничтожает окно
     

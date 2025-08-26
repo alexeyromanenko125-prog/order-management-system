@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>oms &#8212; документация Order Management System 1.1</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=38da9577"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=5b699b7f"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="oms">
+<h1>oms<a class="headerlink" href="#oms" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">analysis module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.get_top_customers"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.get_top_customers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.get_sales_trend"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.get_sales_trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.get_top_products"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.get_top_products()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.get_customer_connections"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.get_customer_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.plot_top_customers"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.plot_top_customers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.plot_sales_trend"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.plot_sales_trend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.plot_top_products"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.plot_top_products()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#analysis.DataAnalyzer.plot_customer_graph"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.plot_customer_graph()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">db module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="db.html#db.Database"><code class="docutils literal notranslate"><span class="pre">Database</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.add_customer"><code class="docutils literal notranslate"><span class="pre">Database.add_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.get_customer"><code class="docutils literal notranslate"><span class="pre">Database.get_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.get_all_customers"><code class="docutils literal notranslate"><span class="pre">Database.get_all_customers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.add_product"><code class="docutils literal notranslate"><span class="pre">Database.add_product()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.update_product_stock"><code class="docutils literal notranslate"><span class="pre">Database.update_product_stock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.get_product"><code class="docutils literal notranslate"><span class="pre">Database.get_product()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.get_all_products"><code class="docutils literal notranslate"><span class="pre">Database.get_all_products()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.add_order"><code class="docutils literal notranslate"><span class="pre">Database.add_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.get_order"><code class="docutils literal notranslate"><span class="pre">Database.get_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.get_all_orders"><code class="docutils literal notranslate"><span class="pre">Database.get_all_orders()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.export_to_json"><code class="docutils literal notranslate"><span class="pre">Database.export_to_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.import_from_json"><code class="docutils literal notranslate"><span class="pre">Database.import_from_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#db.Database.export_to_csv"><code class="docutils literal notranslate"><span class="pre">Database.export_to_csv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">gui module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#gui.OrderManagementApp"><code class="docutils literal notranslate"><span class="pre">OrderManagementApp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Person.email"><code class="docutils literal notranslate"><span class="pre">Person.email</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Person.phone"><code class="docutils literal notranslate"><span class="pre">Person.phone</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Person.validate_email"><code class="docutils literal notranslate"><span class="pre">Person.validate_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Person.validate_phone"><code class="docutils literal notranslate"><span class="pre">Person.validate_phone()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Person.to_dict"><code class="docutils literal notranslate"><span class="pre">Person.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.Customer"><code class="docutils literal notranslate"><span class="pre">Customer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Customer.add_order"><code class="docutils literal notranslate"><span class="pre">Customer.add_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Customer.get_total_spent"><code class="docutils literal notranslate"><span class="pre">Customer.get_total_spent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Product.update_stock"><code class="docutils literal notranslate"><span class="pre">Product.update_stock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Product.to_dict"><code class="docutils literal notranslate"><span class="pre">Product.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.OrderItem"><code class="docutils literal notranslate"><span class="pre">OrderItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.OrderItem.total_price"><code class="docutils literal notranslate"><span class="pre">OrderItem.total_price</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.OrderItem.to_dict"><code class="docutils literal notranslate"><span class="pre">OrderItem.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#models.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Order.add_item"><code class="docutils literal notranslate"><span class="pre">Order.add_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Order.total_amount"><code class="docutils literal notranslate"><span class="pre">Order.total_amount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#models.Order.to_dict"><code class="docutils literal notranslate"><span class="pre">Order.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_analysis.html">test_analysis module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer.setUp"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer.setUp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer.test_get_top_customers"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer.test_get_top_customers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer.test_get_top_products_empty"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer.test_get_top_products_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer.test_get_customer_connections"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer.test_get_customer_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer.test_get_customer_connections_no_common"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer.test_get_customer_connections_no_common()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzer.test_get_sales_trend"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzer.test_get_sales_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzerEdgeCases"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzerEdgeCases</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzerEdgeCases.setUp"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzerEdgeCases.setUp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_analysis.html#test_analysis.TestDataAnalyzerEdgeCases.test_single_customer_no_orders"><code class="docutils literal notranslate"><span class="pre">TestDataAnalyzerEdgeCases.test_single_customer_no_orders()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_models.html">test_models module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_models.html#test_models.TestPerson"><code class="docutils literal notranslate"><span class="pre">TestPerson</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestPerson.test_person_creation"><code class="docutils literal notranslate"><span class="pre">TestPerson.test_person_creation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestPerson.test_email_validation"><code class="docutils literal notranslate"><span class="pre">TestPerson.test_email_validation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestPerson.test_phone_validation"><code class="docutils literal notranslate"><span class="pre">TestPerson.test_phone_validation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestPerson.test_email_setter_validation"><code class="docutils literal notranslate"><span class="pre">TestPerson.test_email_setter_validation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestPerson.test_phone_setter_validation"><code class="docutils literal notranslate"><span class="pre">TestPerson.test_phone_setter_validation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_models.html#test_models.TestCustomer"><code class="docutils literal notranslate"><span class="pre">TestCustomer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestCustomer.test_customer_creation"><code class="docutils literal notranslate"><span class="pre">TestCustomer.test_customer_creation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestCustomer.test_add_order"><code class="docutils literal notranslate"><span class="pre">TestCustomer.test_add_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestCustomer.test_get_total_spent"><code class="docutils literal notranslate"><span class="pre">TestCustomer.test_get_total_spent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_models.html#test_models.TestProduct"><code class="docutils literal notranslate"><span class="pre">TestProduct</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestProduct.test_product_creation"><code class="docutils literal notranslate"><span class="pre">TestProduct.test_product_creation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestProduct.test_update_stock"><code class="docutils literal notranslate"><span class="pre">TestProduct.test_update_stock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_models.html#test_models.TestOrderItem"><code class="docutils literal notranslate"><span class="pre">TestOrderItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrderItem.test_order_item_creation"><code class="docutils literal notranslate"><span class="pre">TestOrderItem.test_order_item_creation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrderItem.test_total_price"><code class="docutils literal notranslate"><span class="pre">TestOrderItem.test_total_price()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_models.html#test_models.TestOrder"><code class="docutils literal notranslate"><span class="pre">TestOrder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrder.setUp"><code class="docutils literal notranslate"><span class="pre">TestOrder.setUp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrder.test_order_creation"><code class="docutils literal notranslate"><span class="pre">TestOrder.test_order_creation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrder.test_add_item"><code class="docutils literal notranslate"><span class="pre">TestOrder.test_add_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrder.test_total_amount"><code class="docutils literal notranslate"><span class="pre">TestOrder.test_total_amount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_models.html#test_models.TestOrder.test_empty_order_total"><code class="docutils literal notranslate"><span class="pre">TestOrder.test_empty_order_total()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Order Management System</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Модули</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Alexey Romanenko.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/source/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

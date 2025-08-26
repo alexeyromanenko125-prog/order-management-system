@@ -31,3 +31,15 @@ pip install -r requirements.txt
 3. Запустите приложение:
 
 python main.py
+
+## Тестирование
+
+### Запуск тестов
+
+```bash
+# Все тесты
+python -m unittest discover
+
+# Конкретный модуль
+python -m unittest test_models.py
+python -m unittest test_analysis.py

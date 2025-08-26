@@ -1,3 +1,8 @@
+"""
+Модуль аналитики и отчетности.
+
+Предоставляет методы для анализа данных и генерации отчетов.
+"""
 from typing import List, Dict, Tuple
 import sqlite3
 from datetime import datetime
@@ -10,11 +15,11 @@ import seaborn as sns
 from models import Customer, Product, Order
 
 class DataAnalyzer:
-    """Класс для анализа и визуализации данных"""
+    """Класс для анализа и визуализации данных."""
     
     def __init__(self, db):
-        """
-        Parameters
+        """Parameters.
+
         ----------
         db : Database
             Экземпляр базы данных для анализа
@@ -23,7 +28,7 @@ class DataAnalyzer:
     
     def get_top_customers(self, n: int = 5) -> List[Tuple[Customer, int, float]]:
         """
-        Получение топ-N клиентов по количеству заказов и общей сумме
+        Получение топ-N клиентов по количеству заказов и общей сумме.
         
         Parameters
         ----------
@@ -51,7 +56,7 @@ class DataAnalyzer:
     
     def get_sales_trend(self, period: str = 'D') -> pd.DataFrame:
         """
-        Получение динамики продаж по периодам
+        Получение динамики продаж по периодам.
         
         Parameters
         ----------
@@ -87,7 +92,7 @@ class DataAnalyzer:
     
     def get_top_products(self, n: int = 5) -> List[Tuple[Product, int, float]]:
         """
-        Получение топ-N товаров по количеству продаж и общей выручке
+        Получение топ-N товаров по количеству продаж и общей выручке.
         
         Parameters
         ----------
@@ -120,7 +125,7 @@ class DataAnalyzer:
     
     def get_customer_connections(self) -> Dict[str, List[Tuple[int, int]]]:
         """
-        Получение связей между клиентами (по общим товарам)
+        Получение связей между клиентами (по общим товарам).
         
         Returns
         -------
@@ -160,7 +165,7 @@ class DataAnalyzer:
         }
     
     def plot_top_customers(self):
-        """Построение графика топ клиентов"""
+        """Построение графика топ клиентов."""
         top_customers = self.get_top_customers()
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
@@ -187,7 +192,7 @@ class DataAnalyzer:
         return fig
     
     def plot_sales_trend(self):
-        """Построение графика динамики продаж"""
+        """Построение графика динамики продаж."""
         trend = self.get_sales_trend('W')  # По неделям
         
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
@@ -209,7 +214,7 @@ class DataAnalyzer:
         return fig
     
     def plot_top_products(self):
-        """Построение графика топ товаров"""
+        """Построение графика топ товаров."""
         top_products = self.get_top_products()
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
@@ -236,7 +241,7 @@ class DataAnalyzer:
         return fig
     
     def plot_customer_graph(self):
-        """Построение графа связей клиентов"""
+        """Построение графа связей клиентов."""
         graph_data = self.get_customer_connections()
         
         fig = plt.figure(figsize=(10, 8))

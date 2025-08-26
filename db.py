@@ -1,3 +1,8 @@
+"""
+Модуль работы с базой данных.
+
+Обеспечивает сохранение, загрузку и управление данными в JSON-файлах.
+"""
 import os
 import json
 import csv
@@ -8,11 +13,11 @@ from typing import List, Dict, Any, Optional
 from models import Customer, Product, Order, OrderItem
 
 class Database:
-    """Класс для работы с данными в CSV/JSON форматах"""
+    """Класс для работы с данными в CSV/JSON форматах."""
     
     def __init__(self, data_dir: str = 'data'):
-        """
-        Parameters
+        """Parameters.
+
         ----------
         data_dir : str, optional
             Папка для хранения данных (по умолчанию 'data')
@@ -29,7 +34,7 @@ class Database:
         self._init_files()
     
     def _init_files(self):
-        """Инициализация файлов с пустыми данными"""
+        """Инициализация файлов с пустыми данными."""
         if not self.customers_file.exists():
             self._save_data([], self.customers_file)
         
@@ -40,7 +45,7 @@ class Database:
             self._save_data([], self.orders_file)
     
     def _load_data(self, file_path: Path) -> List[Dict]:
-        """Загрузка данных из файла"""
+        """Загрузка данных из файла."""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 if file_path.suffix == '.json':
@@ -51,7 +56,7 @@ class Database:
             return []
     
     def _save_data(self, data: List[Dict], file_path: Path):
-        """Сохранение данных в файл"""
+        """Сохранение данных в файл."""
         with open(file_path, 'w', encoding='utf-8') as f:
             if file_path.suffix == '.json':
                 json.dump(data, f, indent=4, ensure_ascii=False)
@@ -63,7 +68,7 @@ class Database:
     
     # CRUD операции для клиентов
     def add_customer(self, customer: Customer):
-        """Добавление клиента"""
+        """Добавление клиента."""
         customers = self._load_data(self.customers_file)
         
         # Проверка на существующий ID
@@ -74,7 +79,7 @@ class Database:
         self._save_data(customers, self.customers_file)
     
     def get_customer(self, customer_id: int) -> Optional[Customer]:
-        """Получение клиента по ID"""
+        """Получение клиента по ID."""
         customers = self._load_data(self.customers_file)
         
         for customer_data in customers:
@@ -89,7 +94,7 @@ class Database:
         return None
     
     def get_all_customers(self) -> List[Customer]:
-        """Получение всех клиентов"""
+        """Получение всех клиентов."""
         customers = self._load_data(self.customers_file)
         return [
             Customer(
@@ -103,7 +108,7 @@ class Database:
     
     # CRUD операции для товаров
     def add_product(self, product: Product):
-        """Добавление товара"""
+        """Добавление товара."""
         products = self._load_data(self.products_file)
         
         # Проверка на существующий ID
@@ -114,7 +119,7 @@ class Database:
         self._save_data(products, self.products_file)
     
     def update_product_stock(self, product_id: int, quantity: int):
-        """Обновление количества товара на складе"""
+        """Обновление количества товара на складе."""
         products = self._load_data(self.products_file)
         
         for product in products:
@@ -125,7 +130,7 @@ class Database:
         self._save_data(products, self.products_file)
     
     def get_product(self, product_id: int) -> Optional[Product]:
-        """Получение товара по ID"""
+        """Получение товара по ID."""
         products = self._load_data(self.products_file)
         
         for product_data in products:
@@ -140,7 +145,7 @@ class Database:
         return None
     
     def get_all_products(self) -> List[Product]:
-        """Получение всех товаров"""
+        """Получение всех товаров."""
         products = self._load_data(self.products_file)
         return [
             Product(
@@ -154,7 +159,7 @@ class Database:
     
     # CRUD операции для заказов
     def add_order(self, order: Order):
-        """Добавление заказа"""
+        """Добавление заказа."""
         orders = self._load_data(self.orders_file)
         products = self._load_data(self.products_file)
         
@@ -176,7 +181,7 @@ class Database:
         self._save_data(orders, self.orders_file)
     
     def get_order(self, order_id: int) -> Optional[Order]:
-        """Получение заказа по ID"""
+        """Получение заказа по ID."""
         orders = self._load_data(self.orders_file)
         customers = self._load_data(self.customers_file)
         products = self._load_data(self.products_file)
@@ -226,7 +231,7 @@ class Database:
         return None
     
     def get_all_orders(self) -> List[Order]:
-        """Получение всех заказов"""
+        """Получение всех заказов."""
         orders = []
         order_ids = [o['order_id'] for o in self._load_data(self.orders_file)]
         
@@ -239,7 +244,7 @@ class Database:
     
     # Экспорт и импорт данных
     def export_to_json(self, file_path: str):
-        """Экспорт всех данных в JSON файл"""
+        """Экспорт всех данных в JSON файл."""
         data = {
             'customers': self._load_data(self.customers_file),
             'products': self._load_data(self.products_file),
@@ -250,7 +255,7 @@ class Database:
             json.dump(data, f, indent=4, ensure_ascii=False)
     
     def import_from_json(self, file_path: str):
-        """Импорт данных из JSON файла"""
+        """Импорт данных из JSON файла."""
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
@@ -259,7 +264,7 @@ class Database:
         self._save_data(data.get('orders', []), self.orders_file)
     
     def export_to_csv(self, directory: str = 'data/exports'):
-        """Экспорт данных в CSV файлы"""
+        """Экспорт данных в CSV файлы."""
         export_dir = Path(directory)
         export_dir.mkdir(parents=True, exist_ok=True)
         

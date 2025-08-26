@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>test_analysis module &#8212; документация Order Management System 1.1</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=38da9577"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=5b699b7f"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-test_analysis">
+<span id="test-analysis-module"></span><h1>test_analysis module<a class="headerlink" href="#module-test_analysis" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Unit-тесты для модуля analysis.py.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_analysis.</span></span><span class="sig-name descname"><span class="pre">TestDataAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для класса DataAnalyzer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer.setUp"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer.setUp" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Настройка тестовых данных.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer.test_get_top_customers">
+<span class="sig-name descname"><span class="pre">test_get_top_customers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer.test_get_top_customers"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer.test_get_top_customers" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест получения топ клиентов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer.test_get_top_products_empty">
+<span class="sig-name descname"><span class="pre">test_get_top_products_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer.test_get_top_products_empty"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer.test_get_top_products_empty" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест получения топ товаров при пустой базе.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer.test_get_customer_connections">
+<span class="sig-name descname"><span class="pre">test_get_customer_connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer.test_get_customer_connections"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer.test_get_customer_connections" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест получения связей между клиентами.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer.test_get_customer_connections_no_common">
+<span class="sig-name descname"><span class="pre">test_get_customer_connections_no_common</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer.test_get_customer_connections_no_common"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer.test_get_customer_connections_no_common" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест связей когда нет общих товаров.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzer.test_get_sales_trend">
+<span class="sig-name descname"><span class="pre">test_get_sales_trend</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzer.test_get_sales_trend"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzer.test_get_sales_trend" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест получения динамики продаж.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzerEdgeCases">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_analysis.</span></span><span class="sig-name descname"><span class="pre">TestDataAnalyzerEdgeCases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzerEdgeCases"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzerEdgeCases" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Тесты для крайних случаев DataAnalyzer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzerEdgeCases.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzerEdgeCases.setUp"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzerEdgeCases.setUp" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_analysis.TestDataAnalyzerEdgeCases.test_single_customer_no_orders">
+<span class="sig-name descname"><span class="pre">test_single_customer_no_orders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/test_analysis.html#TestDataAnalyzerEdgeCases.test_single_customer_no_orders"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#test_analysis.TestDataAnalyzerEdgeCases.test_single_customer_no_orders" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тест с одним клиентом без заказов.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Order Management System</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Модули</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Alexey Romanenko.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/source/test_analysis.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
