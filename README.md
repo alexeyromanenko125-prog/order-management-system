@@ -36,7 +36,6 @@ python main.py
 
 ### Запуск тестов
 
-```bash
 # Все тесты
 python -m unittest discover
 
