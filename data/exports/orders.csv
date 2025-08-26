@@ -1,6 +1,0 @@
-order_id,customer_id,date,items,total_amount
-1,1,2025-08-15T16:18:58.786657,"[{'product_id': 1, 'quantity': 1, 'price': 33000.0, 'total_price': 33000.0}]",33000.0
-2,2,2025-08-19T12:53:41.980063,"[{'product_id': 3, 'quantity': 1, 'price': 20000.0, 'total_price': 20000.0}]",20000.0
-3,3,2025-08-19T12:54:24.564726,"[{'product_id': 2, 'quantity': 5, 'price': 10000.0, 'total_price': 50000.0}]",50000.0
-4,5,2025-08-19T12:57:55.428028,"[{'product_id': 3, 'quantity': 1, 'price': 20000.0, 'total_price': 20000.0}]",20000.0
-5,4,2025-08-19T12:58:36.861310,"[{'product_id': 2, 'quantity': 1, 'price': 10000.0, 'total_price': 10000.0}]",10000.0
